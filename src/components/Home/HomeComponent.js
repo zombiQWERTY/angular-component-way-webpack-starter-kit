@@ -4,11 +4,14 @@ import homeStyles from './HomeStyles.scss';
 const Component = {
   template: require('./HomeView.jade')(homeStyles),
   controllerAs: 'Home',
-  controller() {
+  controller(title) {
     'ngInject';
-
+    
+    title.setTitle({
+      newTitle: 'Home'
+    });
   }
 };
 
 
-export default angular.module('app.pages.home', []).component('pHome', Component).name;
+export default angular.module('App.pages.home', []).component('home', Component).name;

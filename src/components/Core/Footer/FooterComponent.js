@@ -12,4 +12,4 @@ const Component = {
 };
 
 
-export default angular.module('app.core.footer', []).component('gFooter', Component).name;
+export default angular.module('App.core.Footer', []).component('appFooter', Component).name;

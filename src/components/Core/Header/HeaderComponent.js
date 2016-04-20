@@ -12,4 +12,4 @@ const Component = {
 };
 
 
-export default angular.module('app.core.header', []).component('gHeader', Component).name;
+export default angular.module('App.core.Header', []).component('appHeader', Component).name;

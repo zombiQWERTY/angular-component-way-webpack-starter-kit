@@ -258,7 +258,7 @@ module.exports = (function makeWebpackConfig () {
        * Copy assets from the public folder
        */
       new CopyWebpackPlugin([{
-        from: __dirname + '/src/public'
+        from: __dirname + '/src/assets'
       }])
     );
   }

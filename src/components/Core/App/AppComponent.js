@@ -4,6 +4,7 @@ import FastClick                from 'fastclick';
 
 import HeaderComponent          from '../Header/HeaderComponent';
 import FooterComponent          from '../Footer/FooterComponent';
+
 import HomeComponent            from '../../Home/HomeComponent';
 
 import TitleProvider            from './TitleProvider';
@@ -57,17 +58,17 @@ const Component = {
     {
       path: '/',
       name: 'Home',
-      component: 'pHome',
+      component: 'home',
       useAsDefault: true
     }
   ]
 };
 
 angular
-  .module('app', ['ngComponentRouter'])
+  .module('App', ['ngComponentRouter'])
   .config(Config)
   .run(Runners)
   .value('$routerRootComponent', 'app')
   .component('app', Component);
 
-angular.bootstrap(document, ['app'].concat(topLevelComponents, topLevelProviders, topLevelDirectives));
+angular.bootstrap(document, ['App'].concat(topLevelComponents, topLevelProviders, topLevelDirectives));
