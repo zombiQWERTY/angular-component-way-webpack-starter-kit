@@ -1,0 +1,44 @@
+@import "../../../variables/colors.scss";
+@import "../../../variables/typography.scss";
+
+$color-base:                  $black;
+$link-color:                  $color-base;
+$body-bg-color:               $white;
+
+$font-family-base:            $helvetica;
+$font-size-base:              16px;
+
+$max-content-width:           100%;
+$min-content-width:           320px;
+
+a {
+  text-decoration: none;
+  color: $link-color;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+body {
+  background: $body-bg-color;
+  color: $color-base;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  min-width: $min-content-width;
+  cursor: default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+.wrapper {
+  width: $max-content-width;
+  min-width: $min-content-width;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.main {
+
+}

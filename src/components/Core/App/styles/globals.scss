@@ -1,0 +1,11 @@
+:global .noHover {
+  pointer-events: none;
+}
+
+:global .noScroll {
+  overflow: hidden;
+}
+
+:global .block {
+  display: block;
+}
