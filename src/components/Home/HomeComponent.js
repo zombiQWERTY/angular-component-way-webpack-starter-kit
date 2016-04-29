@@ -6,7 +6,7 @@ const Component = {
   controllerAs: 'Home',
   controller(title) {
     'ngInject';
-    
+
     title.setTitle({
       newTitle: 'Home'
     });

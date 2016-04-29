@@ -9,6 +9,8 @@ import HomeComponent            from '../../Home/HomeComponent';
 
 import TitleProvider            from './TitleProvider';
 
+import APIFactory               from './APIFactory';
+
 import PointerEventsDirective   from './PointerEventsDirective';
 
 import resetStyles              from './styles/reset.scss';
@@ -28,6 +30,10 @@ const topLevelComponents = [
 
 const topLevelProviders = [
   TitleProvider
+];
+
+const topLevelFactories = [
+  APIFactory
 ];
 
 const topLevelDirectives = [
@@ -71,4 +77,6 @@ angular
   .value('$routerRootComponent', 'app')
   .component('app', Component);
 
-angular.bootstrap(document, ['App'].concat(topLevelComponents, topLevelProviders, topLevelDirectives));
+const modules = ['App'].concat(topLevelComponents, topLevelProviders, topLevelFactories, topLevelDirectives);
+
+angular.bootstrap(document, modules);
