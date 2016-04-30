@@ -1,6 +1,10 @@
 import angular                  from 'angular';
 import '@angular/router/angular1/angular_1_router';
+import 'angular-resource';
+
 import FastClick                from 'fastclick';
+
+import Configs                  from './Config';
 
 import HeaderComponent          from '../Header/HeaderComponent';
 import FooterComponent          from '../Footer/FooterComponent';
@@ -18,7 +22,6 @@ import fontStyles               from './styles/fonts.scss';
 import globalStyles             from './styles/globals.scss';
 
 import appStyles                from './AppStyles.scss';
-
 
 const styles = Object.assign(resetStyles, fontStyles, globalStyles, appStyles);
 
@@ -51,13 +54,15 @@ const Runners = () => {
 
 };
 
+const $body = document.body;
+
 const Component = {
   template: require('./AppView.jade')(styles),
   controllerAs: 'App',
   controller(title) {
     'ngInject';
 
-    new FastClick(document.body);
+    new FastClick($body);
     title.setTitle();
   },
   $routeConfig: [
@@ -71,7 +76,8 @@ const Component = {
 };
 
 angular
-  .module('App', ['ngComponentRouter'])
+  .module('App', ['ngComponentRouter', 'ngResource'])
+  .constant('Config', Configs)
   .config(Config)
   .run(Runners)
   .value('$routerRootComponent', 'app')
@@ -79,4 +85,4 @@ angular
 
 const modules = ['App'].concat(topLevelComponents, topLevelProviders, topLevelFactories, topLevelDirectives);
 
-angular.bootstrap(document, modules);
+angular.bootstrap($body, modules);

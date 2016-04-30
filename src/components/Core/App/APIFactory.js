@@ -2,16 +2,18 @@ import angular from 'angular';
 
 import API     from './API';
 
-const Factory = () => {
-  const protocol = (ssl = false) => {
+const Factory = (Config) => {
+  'ngInject';
+
+  const protocol = (ssl = Config.API.ssl) => {
     return ssl ? 'https' : 'http';
   };
 
-  const domain = (defaultDomain = 'api.mysite.com') => {
+  const domain = (defaultDomain = Config.API.domain) => {
     return defaultDomain;
   };
 
-  const apiVersion = (version = 1) => {
+  const apiVersion = (version = Config.API.version) => {
     return `v${version}`;
   };
 
