@@ -5,6 +5,7 @@ import 'angular-resource';
 import FastClick                from 'fastclick';
 
 import Configs                  from './Config';
+import Routes                   from './Routes';
 
 import HeaderComponent          from '../Header/HeaderComponent';
 import FooterComponent          from '../Footer/FooterComponent';
@@ -43,18 +44,18 @@ const topLevelDirectives = [
   PointerEventsDirective
 ];
 
+const $body = document.body;
+
 const Config = ($locationProvider) => {
   'ngInject';
 
-  $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(Configs.isHTML5);
 };
 
 const Runners = () => {
   'ngInject';
 
 };
-
-const $body = document.body;
 
 const Component = {
   template: require('./AppView.jade')(styles),
@@ -65,14 +66,7 @@ const Component = {
     new FastClick($body);
     title.setTitle();
   },
-  $routeConfig: [
-    {
-      path: '/',
-      name: 'Home',
-      component: 'home',
-      useAsDefault: true
-    }
-  ]
+  $routeConfig: Routes
 };
 
 angular

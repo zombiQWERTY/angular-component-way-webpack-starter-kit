@@ -1,20 +1,17 @@
 import angular from 'angular';
 
-const Provider = () => {
-  const defaults = {
-    defaultTitle: 'Angular Webpack Starter Kit',
-    devider:       ' –– '
-  };
+const Provider = (Config) => {
+  'ngInject';
 
   return {
     title: null,
     setTitle(params = {}) {
-      const defaultTitle = params.defaultTitle || defaults.defaultTitle;
+      const defaultTitle = params.defaultTitle || Config.title.defaultTitle;
       const newTitle     = params.newTitle     || '';
-      const devider      = params.devider      || defaults.devider;
+      const divider      = params.divider      || Config.title.divider;
 
-      this.title     = { defaultTitle, newTitle, devider };
-      document.title = newTitle + (newTitle ? devider : '') + defaultTitle;
+      this.title     = { defaultTitle, newTitle, divider };
+      document.title = newTitle + (newTitle ? divider : '') + defaultTitle;
     },
 
     getTitle() {
