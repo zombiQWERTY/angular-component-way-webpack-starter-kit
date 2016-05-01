@@ -25,7 +25,7 @@ class controller {
     Post.get({ postID }).$promise.then((post) => {
       this.post = post;
 
-      this.pageTitle = this.post.title;
+      if (!this.postId) { this.pageTitle = this.post.title; }
       this.busy      = false;
     });
   }
