@@ -2,13 +2,16 @@ import angular      from 'angular';
 
 import footerStyles from './FooterStyles.scss';
 
-const Component = {
-  template: require('./FooterView.jade')(footerStyles),
-  controllerAs: 'Footer',
-  controller() {
-    'ngInject';
+class controller {
+  constructor() { 'ngInject';
 
   }
+}
+
+const Component = {
+  template:     require('./FooterView.jade')(footerStyles),
+  controllerAs: 'Footer',
+  controller
 };
 
 

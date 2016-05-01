@@ -1,13 +1,13 @@
 const config = {
-  isHTML5: true,
+  isHTML5: true, /** Boolean */
   title: {
-    defaultTitle: 'Angular Webpack Starter Kit',
-    divider:      ' –– '
+    defaultTitle: 'Angular Webpack Starter Kit', /** String */
+    divider:      ' –– ' /** String */
   },
   API: {
-    domain: 'api.mysite.com',
-    ssl:     false,
-    version: 1
+    domain: 'jsonplaceholder.typicode.com', /** String */
+    ssl:     false, /** Boolean */
+    version: false /** May be boolean (only false) or number */
   }
 };
 

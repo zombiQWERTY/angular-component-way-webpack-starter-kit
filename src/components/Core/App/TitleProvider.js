@@ -1,8 +1,6 @@
 import angular from 'angular';
 
-const Provider = (Config) => {
-  'ngInject';
-
+const Provider = (Config) => { 'ngInject';
   return {
     title: null,
     setTitle(params = {}) {
@@ -10,8 +8,8 @@ const Provider = (Config) => {
       const newTitle     = params.newTitle     || '';
       const divider      = params.divider      || Config.title.divider;
 
-      this.title     = { defaultTitle, newTitle, divider };
-      document.title = newTitle + (newTitle ? divider : '') + defaultTitle;
+      this.title         = { defaultTitle, newTitle, divider };
+      document.title     = newTitle + (newTitle ? divider : '') + defaultTitle;
     },
 
     getTitle() {

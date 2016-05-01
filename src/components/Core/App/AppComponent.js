@@ -5,7 +5,6 @@ import 'angular-resource';
 import FastClick                from 'fastclick';
 
 import Configs                  from './Config';
-import Routes                   from './Routes';
 
 import HeaderComponent          from '../Header/HeaderComponent';
 import FooterComponent          from '../Footer/FooterComponent';
@@ -46,27 +45,39 @@ const topLevelDirectives = [
 
 const $body = document.body;
 
-const Config = ($locationProvider) => {
-  'ngInject';
-
+const Config = ($locationProvider) => { 'ngInject';
   $locationProvider.html5Mode(Configs.isHTML5);
 };
 
-const Runners = () => {
-  'ngInject';
+const Runners = () => { 'ngInject';
 
 };
+
+const TITLE = new WeakMap();
+
+class controller {
+  constructor(title) { 'ngInject';
+    TITLE.set(this, title);
+
+    this.$routerOnActivate = () => {
+      new FastClick($body);
+      TITLE.get(this).setTitle();
+    };
+  }
+}
 
 const Component = {
   template: require('./AppView.jade')(styles),
   controllerAs: 'App',
-  controller(title) {
-    'ngInject';
-
-    new FastClick($body);
-    title.setTitle();
-  },
-  $routeConfig: Routes
+  controller,
+  $routeConfig: [
+    {
+      path: '/...',
+      name: 'Home',
+      component: 'home',
+      useAsDefault: true
+    }
+  ]
 };
 
 angular

@@ -1,8 +1,6 @@
 import angular from 'angular';
 
-const PointerEvents = ($timeout, $window) => {
-  'ngInject';
-
+const PointerEvents = ($timeout, $window) => { 'ngInject';
   return {
     restrict: 'A',
     link(scope) {

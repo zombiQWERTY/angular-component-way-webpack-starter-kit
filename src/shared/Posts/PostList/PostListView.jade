@@ -1,0 +1,4 @@
+div(ng-if="PostList.busy") Loading...
+div(class=posts, ng-if="!PostList.busy")
+  div(ng-repeat="post in PostList.posts")
+    a(ng-link="['PostDetail', { postID: post.id }]") {{ post.id }}: {{ post.title }}

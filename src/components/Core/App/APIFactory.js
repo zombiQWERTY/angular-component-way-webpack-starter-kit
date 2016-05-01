@@ -1,9 +1,12 @@
-import angular from 'angular';
+import angular      from 'angular';
 
-import API     from './API';
+import propByString from '../../../vendor/PropByString';
 
-const Factory = (Config) => {
-  'ngInject';
+import APIStore     from './API';
+
+const Factory = (Config) => { 'ngInject';
+
+  const API = angular.copy(APIStore);
 
   const protocol = (ssl = Config.API.ssl) => {
     return ssl ? 'https' : 'http';
@@ -14,10 +17,20 @@ const Factory = (Config) => {
   };
 
   const apiVersion = (version = Config.API.version) => {
-    return `v${version}`;
+    return version ? `v${version}/` : '';
   };
 
-  const getRoute = (route, params, version, defaultDomain, ssl) => {
+  const getInfo = (route) => {
+    let getRoute;
+
+    try {
+      getRoute = propByString(API, route);
+    } catch(e) { throw `Route is not exist: ${route} \n ${e}`; }
+
+    return getRoute;
+  };
+
+  const getRoute = (route, version, defaultDomain, ssl) => {
     const getProtocol = protocol(ssl);
     const getDomain   = domain(defaultDomain);
     const getVersion  = apiVersion(version);
@@ -26,19 +39,17 @@ const Factory = (Config) => {
     if (route === 'domain')   { return getDomain;   }
     if (route === 'version')  { return getVersion;  }
 
-    let getRoute;
+    return `${getProtocol}://${getDomain}/${getVersion}${getInfo(route).route}`;
+  };
 
-    try {
-      getRoute = API[route](params);
-    } catch(e) {
-      throw `Route is not defined: \n ${e}`;
-    }
-
-    return `${getProtocol}://${getDomain}/${getVersion}/${getRoute}`;
+  const getMethod = (route) => {
+    return getInfo(route).method;
   };
 
   return {
-    getRoute
+    getRoute,
+    getMethod,
+    getInfo
   };
 };
 

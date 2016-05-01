@@ -2,13 +2,16 @@ import angular      from 'angular';
 
 import headerStyles from './HeaderStyles.scss';
 
-const Component = {
-  template: require('./HeaderView.jade')(headerStyles),
-  controllerAs: 'Header',
-  controller() {
-    'ngInject';
+class controller {
+  constructor() { 'ngInject';
 
   }
+}
+
+const Component = {
+  template:     require('./HeaderView.jade')(headerStyles),
+  controllerAs: 'Header',
+  controller
 };
 
 
