@@ -15,6 +15,9 @@ class controller {
     this.$routerOnActivate = (next) => {
       this.getPost(next.params.postID);
     };
+    this.$onInit = () => {
+      this.getPost(this.postId);
+    };
   }
 
   getPost(postID) {
@@ -35,6 +38,9 @@ class controller {
 const Component = {
   template:     require('./PostDetailView.jade')(postDetailStyles),
   controllerAs: 'PostDetail',
+  bindings: {
+    postId: '<'
+  },
   controller
 };
 
