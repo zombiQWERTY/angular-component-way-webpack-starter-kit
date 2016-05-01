@@ -1,3 +1,5 @@
+post-detail.component(post-id="1")
+div(style="color:red;") Get all posts
 div(ng-if="PostList.busy") Loading...
 div(class=posts, ng-if="!PostList.busy")
   div(ng-repeat="post in PostList.posts")
