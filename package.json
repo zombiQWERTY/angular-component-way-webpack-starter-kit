@@ -49,6 +49,7 @@
   "dependencies": {
     "@angular/router": "^0.2.0",
     "angular": "^1.5.0",
+    "angular-resource": "^1.5.5",
     "fastclick": "^1.0.6"
   },
   "devDependencies": {
