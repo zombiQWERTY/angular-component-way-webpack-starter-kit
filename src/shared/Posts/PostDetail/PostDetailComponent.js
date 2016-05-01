@@ -16,6 +16,7 @@ class controller {
       this.getPost(next.params.postID);
     };
     this.$onInit = () => {
+      if (!this.postId) { return; }
       this.getPost(this.postId);
     };
   }
@@ -26,7 +27,7 @@ class controller {
       this.post = post;
 
       if (!this.postId) { this.pageTitle = this.post.title; }
-      this.busy      = false;
+      this.busy = false;
     });
   }
 
