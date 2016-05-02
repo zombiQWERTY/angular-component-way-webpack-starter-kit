@@ -1,9 +1,25 @@
-import angular      from 'angular';
+import angular from 'angular';
+
+/*-- APPEND PROVIDER HERE --*/
+
+/*-- APPEND FACTORY HERE --*/
+
+/*-- APPEND DIRECTIVE HERE --*/
+
+/*-- APPEND SERVICE HERE --*/
+
+/*-- APPEND FILTER HERE --*/
 
 import footerStyles from './FooterStyles.scss';
 
 class controller {
-  constructor() { 'ngInject';
+  constructor(
+    /*-- CALL PROVIDER HERE --*/
+    /*-- CALL FACTORY HERE --*/
+    /*-- CALL DIRECTIVE HERE --*/
+    /*-- CALL SERVICE HERE --*/
+    /*-- CALL FILTER HERE --*/
+  ) { 'ngInject';
 
   }
 }
@@ -15,4 +31,10 @@ const Component = {
 };
 
 
-export default angular.module('App.core.Footer', []).component('appFooter', Component).name;
+export default angular.module('App.core.Footer', [
+  /*-- SET PROVIDER HERE --*/
+  /*-- SET FACTORY HERE --*/
+  /*-- SET DIRECTIVE HERE --*/
+  /*-- SET SERVICE HERE --*/
+  /*-- SET FILTER HERE --*/
+]).component('appFooter', Component).name;

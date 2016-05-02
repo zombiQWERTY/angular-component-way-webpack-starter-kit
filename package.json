@@ -1,7 +1,7 @@
 {
   "name": "angular-component-way-webpack-starter-kit",
-  "version": "1.2.0",
-  "description": "An Angular Webpack Starter kit with component way featuring Angular 1.x (ui-router, Tests, E2E, Dev/Prod), Karma, Protractor, Jasmine, Istanbul, Babel, Postcss, Jade, livereload and Webpack",
+  "version": "2.0.0",
+  "description": "An Angular Webpack Starter kit with component way featuring Angular 1.x (component router, Tests, E2E, Dev/Prod), Karma, Protractor, Jasmine, Istanbul, Babel, Postcss, Jade, livereload and Webpack",
   "keywords": [
     "angular",
     "components",
@@ -50,7 +50,8 @@
     "@angular/router": "^0.2.0",
     "angular": "^1.5.0",
     "angular-resource": "^1.5.5",
-    "fastclick": "^1.0.6"
+    "fastclick": "^1.0.6",
+    "lodash": "^4.11.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0",
@@ -67,6 +68,7 @@
     "file-loader": "^0.8.4",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.7.1",
+    "inquirer-directory": "^2.0.0",
     "isparta-instrumenter-loader": "^1.0.0",
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
@@ -78,9 +80,11 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
+    "lodash": "^4.11.1",
     "ng-annotate-loader": "^0.1.0",
     "node-libs-browser": "^1.0.0",
     "null-loader": "^0.1.1",
+    "plop": "^1.5.0",
     "postcss-discard-comments": "^2.0.4",
     "postcss-functions": "^2.1.0",
     "postcss-hexrgba": "^0.2.0",

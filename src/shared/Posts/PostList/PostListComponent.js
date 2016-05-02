@@ -1,7 +1,7 @@
 import angular        from 'angular';
 import postListStyles from './PostListStyles.scss';
 
-import PostsResource  from '../PostsResource';
+import PostsResource from '../PostsResource';
 
 const TITLE         = new WeakMap();
 const POST_RESOURCE = new WeakMap();

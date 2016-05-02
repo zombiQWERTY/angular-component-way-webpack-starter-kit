@@ -1,34 +1,40 @@
-import angular                  from 'angular';
+import angular                from 'angular';
 import '@angular/router/angular1/angular_1_router';
 import 'angular-resource';
 
-import FastClick                from 'fastclick';
+import FastClick              from 'fastclick';
 
-import Configs                  from './Config';
+import Configs                from './Config';
 
-import HeaderComponent          from '../Header/HeaderComponent';
-import FooterComponent          from '../Footer/FooterComponent';
+import TitleProvider          from './TitleProvider';
+import APIFactory             from './APIFactory';
+import PointerEventsDirective from './PointerEventsDirective';
 
-import HomeComponent            from '../../Home/HomeComponent';
+import HomeComponent          from '../../Home/HomeComponent';
 
-import TitleProvider            from './TitleProvider';
+import HeaderComponent        from '../Header/HeaderComponent';
+import FooterComponent        from '../Footer/FooterComponent';
 
-import APIFactory               from './APIFactory';
+import PostListComponent      from '../../../shared/Posts/PostList/PostListComponent';
+import PostDetailComponent    from '../../../shared/Posts/PostDetail/PostDetailComponent';
 
-import PointerEventsDirective   from './PointerEventsDirective';
+import resetStyles            from './styles/reset.scss';
+import fontStyles             from './styles/fonts.scss';
+import globalStyles           from './styles/globals.scss';
 
-import resetStyles              from './styles/reset.scss';
-import fontStyles               from './styles/fonts.scss';
-import globalStyles             from './styles/globals.scss';
-
-import appStyles                from './AppStyles.scss';
+import appStyles              from './AppStyles.scss';
 
 const styles = Object.assign(resetStyles, fontStyles, globalStyles, appStyles);
 
 const topLevelComponents = [
+  HomeComponent
+];
+
+const lowLevelComponents = [
   HeaderComponent,
   FooterComponent,
-  HomeComponent
+  PostListComponent,
+  PostDetailComponent
 ];
 
 const topLevelProviders = [
@@ -41,6 +47,14 @@ const topLevelFactories = [
 
 const topLevelDirectives = [
   PointerEventsDirective
+];
+
+const topLevelServices = [
+
+];
+
+const topLevelFilters = [
+
 ];
 
 const $body = document.body;
@@ -72,9 +86,9 @@ const Component = {
   controller,
   $routeConfig: [
     {
-      path: '/...',
-      name: 'Home',
-      component: 'home',
+      path:         '/...',
+      name:         'Home',
+      component:    'home',
       useAsDefault: true
     }
   ]
@@ -88,6 +102,7 @@ angular
   .value('$routerRootComponent', 'app')
   .component('app', Component);
 
-const modules = ['App'].concat(topLevelComponents, topLevelProviders, topLevelFactories, topLevelDirectives);
+const modules = ['App'].concat(topLevelComponents, lowLevelComponents, topLevelProviders, topLevelFactories,
+                                topLevelDirectives, topLevelServices, topLevelFilters);
 
 angular.bootstrap($body, modules);
