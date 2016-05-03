@@ -1,7 +1,7 @@
 {
   "name": "angular-component-way-webpack-starter-kit",
-  "version": "2.1.0",
-  "description": "An Angular Webpack Starter kit with component way featuring Angular 1.x (component router, Tests, E2E, Dev/Prod), Karma, Protractor, Jasmine, Istanbul, Babel, Postcss, Jade, livereload and Webpack",
+  "version": "2.1.1",
+  "description": "An Angular Webpack Starter kit featuring Angular 1.x with component way (component-router, Tests, E2E, Dev/Prod), Karma, Protractor, Jasmine, Babel, Postcss, Jade, livereload, Webpack and CLI-generator)",
   "keywords": [
     "angular",
     "components",
@@ -81,7 +81,7 @@
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.14",
     "karma-coverage": "^0.5.3",
-    "karma-jasmine": "^0.3.6",
+    "karma-jasmine": "^1.0.0",
     "karma-phantomjs2-launcher": "^0.5.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",

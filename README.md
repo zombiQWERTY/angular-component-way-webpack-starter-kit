@@ -16,6 +16,7 @@ This workflow serves as a starting point for building Angular 1.x applications u
 * Testing environment using karma to run tests and jasmine as the framework; protractor to End to End tests.
 * Code coverage when tests are run.
 * No gulp and no grunt, just npm scripts.
+* Generic components via plop.
 
 >Warning: Make sure you're using the latest version of Node.js and NPM
 
@@ -89,6 +90,7 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 
 ## Other
 
+* `npm run plop` for generating files
 * `npm run stats` for code analysing ([webpack.github.io/analyse](https://webpack.github.io/analyse/))
 * Store your content (images, etc.) that loads from html/jade in [public folder](./src/public/) folder
 
