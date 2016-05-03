@@ -1,6 +1,6 @@
 {
   "name": "angular-component-way-webpack-starter-kit",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "An Angular Webpack Starter kit with component way featuring Angular 1.x (component router, Tests, E2E, Dev/Prod), Karma, Protractor, Jasmine, Istanbul, Babel, Postcss, Jade, livereload and Webpack",
   "keywords": [
     "angular",
