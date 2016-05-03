@@ -20,14 +20,16 @@ class controller {
     };
   }
 
-  getPost(postID) {
+  async getPost(postID) {
     const Post = POST_RESOURCE.get(this).one();
-    Post.get({ postID }).$promise.then((post) => {
-      this.post = post;
 
+    try {
+      this.post = await Post.get({ postID });
       if (!this.postId) { this.pageTitle = this.post.title; }
       this.busy = false;
-    });
+    } catch(e) {
+      console.error(`Can't get a post:\n${e}`);
+    }
   }
 
   set pageTitle(newTitle) {

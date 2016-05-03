@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+
 import angular                from 'angular';
 import '@angular/router/angular1/angular_1_router';
 import 'angular-resource';

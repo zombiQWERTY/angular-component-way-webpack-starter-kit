@@ -14,16 +14,19 @@ class controller {
     this.$routerOnActivate = () => {
       $TITLE.get(this).setTitle({ newTitle: 'Post list' });
 
-      this.getList.then((posts) => {
-        this.posts = posts;
-        this.busy  = false;
-      });
+      this.getList();
     };
   }
 
-  get getList() {
+  async getList() {
     const Posts = POST_RESOURCE.get(this).list();
-    return Posts.get().$promise;
+
+    try {
+      this.posts = await Posts.get();
+      this.busy  = false;
+    } catch(e) {
+      console.error(`Can't get a post:\n${e}`);
+    }
   }
 }
 

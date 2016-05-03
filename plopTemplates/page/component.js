@@ -2,16 +2,14 @@ import angular from 'angular';
 
 import {{ componentName }}Styles from './{{ name }}Styles.scss';
 
-const TITLE = new WeakMap();
+const $TITLE = new WeakMap();
 
 class controller {
-  constructor(title) { 'ngInject';
-    TITLE.set(this, title);
+  constructor($title) { 'ngInject';
+    $TITLE.set(this, $title);
 
     this.$routerOnActivate = () => {
-      TITLE.get(this).setTitle({
-        newTitle: '{{ name }}'
-      });
+      $TITLE.get(this).setTitle({ newTitle: '{{ name }}' });
     };
   }
 }
