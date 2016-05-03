@@ -31,6 +31,7 @@
     "e2e-watch": "./node_modules/.bin/protractor --elementExplorer",
     "e2e-watch_windows": ".\\node_modules\\.bin\\protractor --elementExplorer",
     "start": "npm run server",
+    "plop": "plop",
     "stats": "webpack --json --profile > stats.json",
     "selenium-install": "node seleniumInstall.js",
     "selenium-start": "selenium-standalone start"
@@ -50,6 +51,7 @@
     "@angular/router": "^0.2.0",
     "angular": "^1.5.0",
     "angular-resource": "^1.5.5",
+    "babel-polyfill": "^6.8.0",
     "fastclick": "^1.0.6",
     "lodash": "^4.11.1"
   },
@@ -59,7 +61,6 @@
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-plugin-transform-async-to-generator": "^6.8.0",
-    "babel-polyfill": "^6.8.0",
     "babel-preset-es2015": "^6.1.18",
     "cb": "^0.1.0",
     "chromedriver": "^2.21.2",
