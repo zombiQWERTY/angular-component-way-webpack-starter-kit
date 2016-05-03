@@ -1,23 +1,22 @@
 import angular        from 'angular';
+import PostsResource  from '../PostsResource';
 import postListStyles from './PostListStyles.scss';
 
-import PostsResource from '../PostsResource';
-
-const TITLE         = new WeakMap();
+const $TITLE        = new WeakMap();
 const POST_RESOURCE = new WeakMap();
 
 class controller {
-  constructor(title, PostResource) { 'ngInject';
-    TITLE.set(this, title);
+  constructor($title, PostResource) { 'ngInject';
+    $TITLE.set(this, $title);
     POST_RESOURCE.set(this, PostResource);
 
     this.busy = true;
     this.$routerOnActivate = () => {
-      TITLE.get(this).setTitle({ newTitle: 'Post list' });
+      $TITLE.get(this).setTitle({ newTitle: 'Post list' });
 
       this.getList.then((posts) => {
-         this.posts = posts;
-        this.busy   = false;
+        this.posts = posts;
+        this.busy  = false;
       });
     };
   }

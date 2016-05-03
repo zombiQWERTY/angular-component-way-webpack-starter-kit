@@ -4,7 +4,8 @@ import 'angular-resource';
 
 import FastClick              from 'fastclick';
 
-import Configs                from './Config';
+import Constants              from './Constants';
+import ConfigProvider         from './ConfigProvider';
 
 import TitleProvider          from './TitleProvider';
 import APIFactory             from './APIFactory';
@@ -38,6 +39,7 @@ const lowLevelComponents = [
 ];
 
 const topLevelProviders = [
+  ConfigProvider,
   TitleProvider
 ];
 
@@ -59,23 +61,36 @@ const topLevelFilters = [
 
 const $body = document.body;
 
-const Config = ($locationProvider) => { 'ngInject';
-  $locationProvider.html5Mode(Configs.isHTML5);
+const Config = ($locationProvider, $configProvider) => { 'ngInject';
+  $configProvider.config({
+    isHTML5: true,
+    API: {
+      domain:  'jsonplaceholder.typicode.com',
+      ssl:     false,
+      version: false
+    },
+    title: {
+      defaultTitle: 'Angular Webpack Starter Kit',
+      divider:      ' –– '
+    }
+  });
+
+  $locationProvider.html5Mode($configProvider.settings.isHTML5);
 };
 
 const Runners = () => { 'ngInject';
 
 };
 
-const TITLE = new WeakMap();
+const $TITLE = new WeakMap();
 
 class controller {
-  constructor(title) { 'ngInject';
-    TITLE.set(this, title);
+  constructor($title) { 'ngInject';
+    $TITLE.set(this, $title);
 
     this.$routerOnActivate = () => {
       new FastClick($body);
-      TITLE.get(this).setTitle();
+      $TITLE.get(this).setTitle();
     };
   }
 }
@@ -94,15 +109,17 @@ const Component = {
   ]
 };
 
+const appDependencies = ['ngComponentRouter', 'ngResource'].concat(topLevelProviders);
+
+const modules = [].concat(Constants, topLevelFactories, topLevelDirectives, topLevelServices,
+                          topLevelFilters, topLevelComponents, lowLevelComponents);
+
 angular
-  .module('App', ['ngComponentRouter', 'ngResource'])
-  .constant('Config', Configs)
+  .module('App', appDependencies)
   .config(Config)
   .run(Runners)
   .value('$routerRootComponent', 'app')
   .component('app', Component);
 
-const modules = ['App'].concat(topLevelComponents, lowLevelComponents, topLevelProviders, topLevelFactories,
-                                topLevelDirectives, topLevelServices, topLevelFilters);
 
-angular.bootstrap($body, modules);
+angular.bootstrap($body, ['App'].concat(modules));

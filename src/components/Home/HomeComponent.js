@@ -1,17 +1,14 @@
 import angular    from 'angular';
-
 import homeStyles from './HomeStyles.scss';
 
-const TITLE = new WeakMap();
+const $TITLE = new WeakMap();
 
 class controller {
-  constructor(title) { 'ngInject';
-    TITLE.set(this, title);
-
+  constructor($title) { 'ngInject';
+    $TITLE.set(this, $title);
+    
     this.$routerOnActivate = () => {
-      TITLE.get(this).setTitle({
-        newTitle: 'Home'
-      });
+      $TITLE.get(this).setTitle({ newTitle: 'Home' });
     };
   }
 }

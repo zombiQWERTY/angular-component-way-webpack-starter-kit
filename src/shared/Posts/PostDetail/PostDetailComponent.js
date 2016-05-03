@@ -1,14 +1,13 @@
 import angular          from 'angular';
+import PostsResource    from '../PostsResource';
 import postDetailStyles from './PostDetailStyles.scss';
 
-import PostsResource    from '../PostsResource';
-
-const TITLE         = new WeakMap();
+const $TITLE        = new WeakMap();
 const POST_RESOURCE = new WeakMap();
 
 class controller {
-  constructor(title, PostResource) { 'ngInject';
-    TITLE.set(this, title);
+  constructor($title, PostResource) { 'ngInject';
+    $TITLE.set(this, $title);
     POST_RESOURCE.set(this, PostResource);
 
     this.busy = true;
@@ -32,7 +31,7 @@ class controller {
   }
 
   set pageTitle(newTitle) {
-    TITLE.get(this).setTitle({ newTitle });
+    $TITLE.get(this).setTitle({ newTitle });
   }
 }
 

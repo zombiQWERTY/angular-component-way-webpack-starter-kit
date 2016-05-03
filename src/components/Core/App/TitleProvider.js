@@ -1,20 +1,20 @@
 import angular from 'angular';
 
-const Provider = (Config) => { 'ngInject';
+const Provider = ($configProvider) => { 'ngInject';
+  const CONFIG_TITLE = $configProvider.settings.title;
   return {
     title: null,
     setTitle(params = {}) {
-      const defaultTitle = params.defaultTitle || Config.title.defaultTitle;
-      const newTitle     = params.newTitle     || '';
-      const divider      = params.divider      || Config.title.divider;
-
-      this.title         = { defaultTitle, newTitle, divider };
-      document.title     = newTitle + (newTitle ? divider : '') + defaultTitle;
+      this.title = {
+        defaultTitle: params.defaultTitle || CONFIG_TITLE.defaultTitle,
+        newTitle:     params.newTitle     || '',
+        divider:      params.divider      || CONFIG_TITLE.divider
+      };
+      const divider  = this.title.newTitle ? this.title.divider : '';
+      document.title = this.title.newTitle + divider + this.title.defaultTitle;
     },
 
-    getTitle() {
-      return this.title;
-    },
+    getTitle() { return this.title; },
 
     $get() {
       return {
@@ -26,4 +26,4 @@ const Provider = (Config) => { 'ngInject';
 };
 
 
-export default angular.module('app.titleProvider', []).provider('title', Provider).name;
+export default angular.module('app.titleProvider', []).provider('$title', Provider).name;
