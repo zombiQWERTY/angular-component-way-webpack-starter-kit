@@ -17,7 +17,7 @@ const Provider = () => { 'ngInject';
     config($params) {
       const settings = this.settings;
       const version = $params.API.version !== settings.API.version ? $params.API.version : settings.API.version;
-      
+
       settings.isHTML5            = $params.isHTML5            || settings.isHTML5;
       settings.title.defaultTitle = $params.title.defaultTitle || settings.title.defaultTitle;
       settings.title.divider      = $params.title.divider      || settings.title.divider;
