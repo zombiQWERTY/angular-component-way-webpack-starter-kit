@@ -1,9 +1,10 @@
 {
   "presets": ["es2015"],
   "plugins": [
+    "syntax-async-functions",
     "transform-async-to-generator",
     "transform-class-properties",
     "transform-minify-booleans",
-    "transform-flow-strip-types"
+    "syntax-async-generators"
   ]
 }
