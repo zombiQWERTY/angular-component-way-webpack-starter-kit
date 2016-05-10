@@ -92,7 +92,7 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 
 * `npm run plop` for generating files
 * `npm run stats` for code analysing ([webpack.github.io/analyse](https://webpack.github.io/analyse/))
-* Store your content (images, etc.) that loads from html/jade in [public folder](./src/public/) folder
+* Store your content (images, etc.) that loads from html/jade in [assets folder](./src/assets/) folder
 
 # License
 
