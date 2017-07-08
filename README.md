@@ -1,3 +1,4 @@
+# PACKAGE DEPRECATED. USE REACT OR VUE INSTEAD OF ANGULAR. I AM DOING KIT BASED ON VUE WITH REDUX.
 # An Angular Webpack Starter kit
 
 [![Dependency Status](https://david-dm.org/zombiQWERTY/angular-component-way-webpack-starter-kit/status.svg)](https://david-dm.org/zombiQWERTY/angular-component-way-webpack-starter-kit#info=dependencies) [![devDependency Status](https://david-dm.org/zombiQWERTY/angular-component-way-webpack-starter-kit/dev-status.svg)](https://david-dm.org/zombiQWERTY/angular-component-way-webpack-starter-kit#info=devDependencies)
